@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+
+    <ui:param name="pageTitle" value="Gelen Mesajlar"/>
+    <ui:define name="icerik">
+        <div class="col-md-8 animate-box fadeInLeft animated-fast">
+            <div class="container">
+                <h:form id="main">
+                    <h1 style="text-align: center">Gelen Mesajlar</h1>
+                    <p:dataTable var="c" value="#{contactListController.contactList}" widgetVar="contactTable"
+                                 reflow="true" paginator="true" rows="10" id="contactTable"
+                                 rowsPerPageTemplate="5,10,15,100" editable="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowKey="#{c.id}" tableStyle="table-layout: auto;">
+                        <p:ajax event="rowEdit" listener="#{contactListController.onRowEdit}"
+                                update=":main:contactTable"/> <p:ajax event="rowEditCancel"/>
+                        <f:facet name="header">
+                            <div>
+                                <p:outputPanel>
+                                    <p:inputText id="globalFilter"
+                                                 onkeypress="if (event.keyCode == 13) { return false; }"
+                                                 value="#{contactListController.searchKeyword}"
+                                                 onkeyup="PF('contactTable').filter()" style="width:150px"
+                                                 placeholder="#{word['search']}"/>
+                                </p:outputPanel>
+                            </div>
+
+                            <div style="float:right;padding-top: 5px;">
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="excel.png" width="24"/>
+                                    <p:dataExporter type="xls" target="contactTable" fileName="contactTable"/>
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="pdf.png" width="24"/>
+                                    <p:dataExporter type="pdf" target="contactTable" fileName="contactTable"/>
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="csv.png" width="24"/>
+                                    <p:dataExporter type="csv" target="contactTable" fileName="contactTable"/>
+                                </h:commandLink>
+                            </div>
+                        </f:facet>
+                        <p:column headerText="id" filterBy="#{c.id}"
+                                  filterable="false" sortBy="#{c.id}"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.id}"/>
+                        </p:column>
+                        <p:column headerText="Ad" filterBy="#{c.name}"
+                                  sortBy="#{c.name}" filterable="false"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.name}"/>
+                        </p:column>
+                        <p:column headerText="Konu" filterBy="#{c.subject}"
+                                  sortBy="#{c.subject}" filterable="false"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.subject}"/>
+                        </p:column>
+
+                        <p:column headerText="Mesaj" filterBy="#{c.message}"
+                                  sortBy="#{c.message}" filterable="false"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.message}"/>
+                        </p:column>
+                        <p:column headerText="Durum"
+                                  sortBy="#{c.read}">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{c.read?'Okundu':'Okunmadı'}"/></f:facet>
+                                <f:facet name="input">
+                                    <h:selectOneMenu value="#{c.read}" style="width:100%">
+                                        <f:selectItems value="#{contactListController.readList}" var="r"
+                                                       itemLabel="#{r?'Okundu':'Okunmadı'}" itemValue="#{r}"/>
+                                    </h:selectOneMenu>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column>
+                            <p:rowEditor id="editID">
+                                <p:tooltip for="editID" value="Edit"/>
+                            </p:rowEditor>
+                        </p:column>
+                    </p:dataTable>
+
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

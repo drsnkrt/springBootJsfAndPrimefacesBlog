@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <div class="col-md-3 animate-box fadeInRight animated-fast" data-animate-effect="fadeInRight">
+        <h:panelGroup layout="block"
+                      rendered="#{detailController.getTag(param.id)!=null and  rightColController.title}">
+            <div>
+                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Etiketler</div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="fh5co_tags_all">
+                <ui:repeat value="#{detailController.getTag(param.id)}" var="tag">
+                    <h:outputText class="fh5co_tagg" value="#{tag}"/>
+                </ui:repeat>
+            </div>
+        </h:panelGroup>
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-5 align-self-center">
+                <img name="images" src="download (1).jpg" alt="img" class="fh5co_most_trading"/>
+            </div>
+            <div class="col-7 paddding">
+                <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-5 align-self-center">
+                <img name="images" src="allef-vinicius-108153.jpg" alt="img" class="fh5co_most_trading"/>
+            </div>
+            <div class="col-7 paddding">
+                <div class="most_fh5co_treding_font"> Enim ad minim veniam nostrud xercitation ullamco.</div>
+                <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-5 align-self-center">
+                <img name="images" src="download (2).jpg" alt="img" class="fh5co_most_trading"/>
+            </div>
+            <div class="col-7 paddding">
+                <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-5 align-self-center"><img name="images" src="seth-doyle-133175.jpg" alt="img"
+                                                      class="fh5co_most_trading"/></div>
+            <div class="col-7 paddding">
+                <div class="most_fh5co_treding_font"> Magna aliqua ut enim ad minim veniam quis nostrud.</div>
+                <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+            </div>
+        </div>
+
+    </div>
+</ui:composition>
+</html>

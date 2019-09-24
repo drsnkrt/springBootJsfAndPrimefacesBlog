@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+
+    <ui:param name="pageTitle" value="Hata"/>
+    <ui:define name="icerik">
+        <div class="col-md-8 animate-box fadeInLeft animated-fast">
+            <div class="container">
+                <h1 style="align-items: center" align="center"><p:graphicImage library="images" width="50px"
+                                                                               height="50px"
+                                                                               name="error.png"/> HATA </h1>
+                <span/>
+
+                <p:link styleClass="btn btn-info" value="Anasayfaya Dön" style="width: 100%"
+                        outcome="/pages/index.xhtml"/></div>
+        </div>
+    </ui:define>
+</ui:composition>

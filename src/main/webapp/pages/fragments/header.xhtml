@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <div class="container-fluid fh5co_header_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 fh5co_mediya_center"><a href="#" class="color_fff fh5co_mediya_setting">
+                </a>
+                    <div class="d-inline-block fh5co_trading_posotion_relative">
+                        <a class="treding_btn"><i class="fa fa-clock-o"></i>#{headerController.date}</a>
+                        <div class="fh5co_treding_position_absolute"></div>
+                    </div>
+                    <a class="color_fff fh5co_mediya_setting">#{word['header']}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 fh5co_padding_menu">
+                    <a href="/"><p:graphicImage library="images" name="logo.png" styleClass="fh5co_logo_width"/></a>
+                </div>
+                <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
+                    <div class="text-center d-inline-block">
+                        <a href="https://www.linkedin.com/in/dursun-kurt-3b299363" target="_blank"
+                           class="fh5co_display_table">
+                            <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+                        </a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a href="https://www.instagram.com/dkvchannel/" target="_blank" class="fh5co_display_table">
+                            <div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></div>
+                        </a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a href="https://www.youtube.com/dkgamez" target="_blank" class="fh5co_display_table">
+                            <div class="fh5co_verticle_middle"><i class="fa fa-youtube"></i></div>
+                        </a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a href="https://www.facebook.com/drsnkrt" target="_blank" class="fh5co_display_table">
+                            <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html>

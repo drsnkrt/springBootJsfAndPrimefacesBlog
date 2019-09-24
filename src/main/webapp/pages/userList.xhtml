@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+
+    <ui:param name="pageTitle" value="#{word['userList']}"/>
+    <ui:define name="icerik">
+        <div class="col-md-8 animate-box fadeInLeft animated-fast">
+            <div class="container">
+                <h:form id="main">
+                    <h1 style="text-align: center">#{word['userList']}</h1>
+                    <p:dataTable var="c" value="#{userListController.userList}" widgetVar="userTable"
+                                 reflow="true" paginator="true" rows="10" id="userTable"
+                                 rowsPerPageTemplate="5,10,15,100" editable="false"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowKey="#{c.id}" tableStyle="table-layout: auto;">
+                        <f:facet name="header">
+                            <div>
+                                <p:outputPanel>
+                                    <p:inputText id="globalFilter"
+                                                 onkeypress="if (event.keyCode == 13) { return false; }"
+                                                 value="#{userListController.searchKeyword}"
+                                                 onkeyup="PF('userTable').filter()" style="width:150px"
+                                                 placeholder="#{word['search']}"/>
+                                </p:outputPanel>
+                            </div>
+
+                            <div style="float:right;padding-top: 5px;">
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="excel.png" width="24"/>
+                                    <p:dataExporter type="xls" target="contactTable" fileName="userTable"/>
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="pdf.png" width="24"/>
+                                    <p:dataExporter type="pdf" target="contactTable" fileName="userTable"/>
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <p:graphicImage library="images" name="csv.png" width="24"/>
+                                    <p:dataExporter type="csv" target="contactTable" fileName="userTable"/>
+                                </h:commandLink>
+                            </div>
+                        </f:facet>
+                        <p:column headerText="id" filterBy="#{c.id}"
+                                  filterable="false" sortBy="#{c.id}"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.id}"/>
+                        </p:column>
+                        <p:column width="50" headerText="Resim">
+                            <p:graphicImage width="50" height="50" value="#{userListController.image}">
+                                <f:param name="userEmail" value="#{c.email}"/>
+                            </p:graphicImage>
+                        </p:column>
+                        <p:column headerText="E-Mail" filterBy="#{c.email}"
+                                  filterable="false">
+                            <h:outputText value="#{c.email}"/>
+                            <f:param name="action" value="#{c.email}"/>
+                        </p:column>
+                        <p:column headerText="Ad" filterBy="#{c.name}"
+                                  sortBy="#{c.name}" filterable="false"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.name}"/>
+                        </p:column>
+
+                        <p:column headerText="Soyad" filterBy="#{c.surname}"
+                                  sortBy="#{c.surname}" filterable="false"
+                                  filterMatchMode="contains">
+                            <h:outputText value="#{c.surname}"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton value="#{word['view']}"
+                                             icon="fa fa-eye"
+                                             actionListener="#{userListController.setSelectedUser(c)}"
+                                             update=":main:userQuickView" title="#{word['view']}"
+                                             oncomplete=" PF('userQuickView').show();"
+                                             styleClass="#{'btn-primary'}">
+                            </p:commandButton>
+                    </p:column>
+                    </p:dataTable>
+                    <p:dialog id="userQuickView" header="#{word['userQuickView']}"
+                              widgetVar="userQuickView"
+                              draggable="false" closable="true" resizable="false"
+                              showHeader="false" appendTo="@(icerik)">
+                        <div style="display: table; min-width: 400px; display: flex; align-items: center" class="ui-g-12">
+                            <div style="display: table-cell; width: auto;" class="ui-g-6">
+                            </div>
+
+                            <div class="ui-g-6">
+
+                                <table style="border-left: 1px solid #ddd;">
+                                    <tr>
+                                        <td colspan="3"
+                                            style="border-bottom: 1px solid #ddd; text-align: center;">#{userListController.selectedUser.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ad</th>
+                                        <th> :</th>
+                                        <td>#{userListController.selectedUser.name}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Soyad</th>
+                                        <th> :</th>
+                                        <td>#{userListController.selectedUser.surname}</td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </p:dialog>
+
+                </h:form>
+
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>${pageTitle}</title>
+    <link rel="shortcut icon" type="image/x-icon"
+          href="#{resource['/images/favi.gif']}" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
+    <h:outputScript library="js" name="jquery-2.1.0.min.js"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <h:outputStylesheet library="css" name="animate.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.css"/>
+    <h:outputStylesheet library="css" name="media_query.css"/>
+    <h:outputStylesheet library="css" name="owl.carousel.css"/>
+    <h:outputStylesheet library="css" name="owl.theme.default.css"/>
+    <h:outputStylesheet library="css" name="style_1.css"/>
+    <h:outputStylesheet library="css" name="custom.css"/>
+
+    <h:outputScript library="js" name="modernizr-3.5.0.min.js"/>
+    <h:outputScript library="js" name="jquery.waypoints.min.js"/>
+    <h:outputScript library="js" name="jquery.stellar.min.js"/>
+    <h:outputScript library="js" name="main.js"/>
+    <h:outputScript library="js" name="owl.carousel.min.js"/>
+    <h:outputScript library="js" name="bootstrap.js"/>
+    <h:outputScript library="js" name="tether.js"/>
+    <h:outputScript library="js" name="tether.min.js"/>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="header">
+            <ui:include src="fragments/header.xhtml"/>
+        </div>
+        <div id="menu">
+            <ui:include src="fragments/menu.xhtml"/>
+        </div>
+
+        <div class="container-fluid pb-4 pt-4 paddding">
+            <div class="container paddding">
+                <div class="row mx-0">
+                    <ui:insert name="icerik">
+                    </ui:insert>
+                    <ui:include src="fragments/rightCol.xhtml"/>
+                </div>
+            </div>
+        </div>
+
+
+        <ui:include src="fragments/bottom.xhtml"/>
+    </div>
+</h:body>
+
+</html>

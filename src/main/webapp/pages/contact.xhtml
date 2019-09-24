@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="template.xhtml">
+    <ui:param name="pageTitle" value="İletişim"/>
+    <ui:define name="icerik">
+
+        <div class="col-md-8 animate-box fadeInLeft animated-fast">
+            <div class="container">
+               <div class="contact-content">
+                   <div class="col-12 text-center contact_margin_svnit ">
+                       <div class="text-center fh5co_heading py-2">#{word['contact']}</div>
+                   </div>
+                   <div class="row">
+                       <div class="col-12 col-md-12">
+                           <h:form class="row" id="createform">
+                               <p:messages style="width: 100%" id="messages" showDetail="true" closable="true"
+                                           globalOnly="true"></p:messages>
+                               <div class="col-12 py-3">
+                                   <p:inputText type="text" id="txtEmail" required="true"
+                                                requiredMessage="#{word['theEmailFieldCanNotBeNull']}"
+                                                styleClass="form-control fh5co_contact_text_box emailInput"
+                                                value="#{contactController.contact.email}" validatorMessage="Geçersiz E-Mail formatı"
+                                                placeholder="#{word['email']}"> <f:validateRegex
+                                           pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/></p:inputText>
+                                   <p:messages autoUpdate="true" showDetail="false" closable="true" for="txtEmail"/>
+                               </div>
+                               <div class="col-6 py-3">
+                                   <p:inputText type="text" id="txtName"
+                                                requiredMessage="#{word['theNameFieldCanNotBeNull']}"
+                                                required="true" styleClass="form-control fh5co_contact_text_box inputName"
+                                                value="#{contactController.contact.name}"
+                                                placeholder="#{word['name']}"/>
+                                   <p:messages showDetail="false" closable="true" autoUpdate="true" for="txtName"/>
+                               </div>
+                               <div class="col-6 py-3">
+                                   <p:inputText type="text" requiredMessage="#{word['theSubjectFieldCanNotBeNull']}"
+                                                required="true" id="txtSubject"
+                                                styleClass="form-control fh5co_contact_text_box inputSubject"
+                                                placeholder="#{word['subject']}"
+                                                value="#{contactController.contact.subject}"/>
+                                   <p:messages showDetail="false" closable="true" autoUpdate="true" for="txtSubject"/>
+                               </div>
+                               <div class="col-12 py-3">
+                                   <p:inputTextarea requiredMessage="#{word['theMessageFieldCanNotBeNull']}"
+                                                    required="true" id="txtMessage"
+                                                    styleClass="form-control fh5co_contacts_message inputMessage"
+                                                    value="#{contactController.contact.message}"
+                                                    placeholder="#{word['message']}"/>
+                                   <p:messages showDetail="false" closable="true" for="txtMessage" autoUpdate="true"/>
+                               </div>
+                               <div class="col-12 py-3 text-center"><p:commandButton process=":createform"
+                                                                                     update=":createform"
+                                                                                     styleClass="btn contact_btn"
+                                                                                     value="#{word['send']}"
+                                                                                     action="#{contactController.save(contactController.contact)}">
+                               </p:commandButton>
+                               </div>
+
+                           </h:form>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-12 col-md-6 align-self-center">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.635517958488!2d29.03428421527726!3d41.0113501793004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab803653be3dd%3A0xa97b6dc0b62e529b!2sEgem%20Soft!5e0!3m2!1str!2str!4v1567076079561!5m2!1str!2str"
+                                   width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                       </div>
+                   </div>
+
+               </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

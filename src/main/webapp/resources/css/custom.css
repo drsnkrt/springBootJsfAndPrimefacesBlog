@@ -1,0 +1,32 @@
+.contact-content .emailInput {
+    box-shadow: none;
+    border-color: #f5bc04 !important;
+}
+.contact-content .inputSubject{
+      box-shadow: none;
+      border-color: #f5bc04 !important;
+}
+.contact-content .inputName {
+    box-shadow: none;
+    border-color: #f5bc04 !important;
+}
+.contact-content .inputMessage {
+    box-shadow: none;
+    border-color: #f5bc04 !important;
+}
+.contact-content .inputMessage:focus {
+    box-shadow: none;
+    border-color: #5cb3fd !important;
+}
+.contact-content .inputName:focus {
+    box-shadow: none;
+    border-color: #5cb3fd !important;
+}
+.contact-content .inputSubject:focus{
+    box-shadow: none;
+    border-color: #5cb3fd !important;
+}
+.contact-content .emailInput:focus {
+    box-shadow: none;
+    border-color: #5cb3fd !important;
+}

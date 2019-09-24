@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+        <div class="container padding_786">
+            <nav class="navbar navbar-toggleable-md navbar-light ">
+                <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                <a class="navbar-brand" href="#"><img name="images" src="logo.png" alt="img" class="mobile_logo_width"/></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">#{word['mainPage']}<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog">#{word['blog']}<span class="sr-only"></span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">#{word['users']} <span class="sr-only"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                                <a class="dropdown-item" href="adduser">#{word['addUser']}</a>
+                                <a class="dropdown-item" href="userlist">#{word['userList']}</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">#{word['contact']} <span
+                                    class="sr-only"></span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+                                <a class="dropdown-item" href="/contact">#{word['contact']}</a>
+                                <a class="dropdown-item" href="/contactlist">#{word['contactList']}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</ui:composition>
+</html>
